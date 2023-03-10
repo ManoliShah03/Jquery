@@ -1,0 +1,40 @@
+<!DOCTYPE HTML
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1">
+    <title></title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+    </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="text" placeholder="mobile no." id="txtName" />
+    <span id="label" style="color: red"></span>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#txtName").keypress(function (e) {
+                var keyCode = e.keyCode || e.which;
+
+                $("#label").html("");
+
+                var regex = /^[0-9]+$/;
+
+                var isValid = regex.test(String.fromCharCode(keyCode));
+                if (!isValid) {
+                    $("#label").html("Only Numbers allowed.");
+                }
+
+                return isValid;
+            });
+        });
+    </script>
+</body>
+
+</html>

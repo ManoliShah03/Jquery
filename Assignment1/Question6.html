@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Country and State Dropdown</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var countryList = [
+                { name: "USA", states: ["Alabama", "Alaska", "Arizona", "Arkansas", "California"] },
+                { name: "Canada", states: ["Alberta", "British Columbia", "Manitoba", "Ontario", "Quebec"] },
+                { name: "Australia", states: ["New South Wales", "Queensland", "South Australia", "Tasmania", "Victoria"] },
+                { name: "India", states: ["Andhra Pradesh", "Karnataka", "Kerala", "Maharashtra", "Tamil Nadu"] },
+                { name: "United Kingdom", states: ["England", "Northern Ireland", "Scotland", "Wales"] }
+            ];
+
+            // populate country dropdown
+            var countryDropdown = $('#country');
+            $.each(countryList, function (index, country) {
+                countryDropdown.append('<option value="' + country.name + '">' + country.name + '</option>');
+            });
+
+            // populate state dropdown based on selected country
+            $('#country').change(function () {
+                var selectedCountry = $('#country').val();
+                var stateDropdown = $('#state');
+                stateDropdown.empty(); // clear previous options
+
+                $.each(countryList, function (index, country) {
+                    if (country.name === selectedCountry) {
+                        $.each(country.states, function (index, state) {
+                            stateDropdown.append('<option value="' + state + '">' + state + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <label for="country">Select Country:</label>
+    <select id="country">
+        <option value="">-- Select Country --</option>
+    </select>
+
+    <label for="state">Select State:</label>
+    <select id="state">
+        <option value="">-- Select State --</option>
+    </select>
+</body>
+
+</html>
