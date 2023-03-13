@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Question8</title>
+    </script>
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="div1">
+
+        <a style="width: 180px;" id='new_tab' href="https://www.youtube.com/">Youtube</a><br>
+        <a style="width: 180px;" id='new_tab' href="https://www.sigdiv1fo.net/">Sigma Infosolutions</a><br>
+        <a style="width: 180px;" id='new_tab' href="https://www.google.com/">Goggle</a><br>
+        <a style="width: 180px;" id='new_tab' href="https://www.w3schools.com/">w3schools</a><br>
+
+        <br>
+    </div>
+    <input style type="button" id="Btn" value="click to get first href url value">
+
+    <script>
+        $(document).ready(function () {
+            $("#Btn").click(function () {
+                alert($("a:first").attr("href"));
+            });
+        });
+    </script>
+</body>
+
+</html>

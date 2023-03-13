@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Question 2</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #copy {
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <label for="textbox1">Text Box 1:</label>
+  <textarea id="textbox1"></textarea>
+  <br>
+  <label for="textbox2">Text Box 2:</label>
+  <textarea id="textbox2"></textarea>
+  <br><br>
+  <button id="copy">Copy Text</button>
+
+  <script>
+    $(document).ready(function () {
+      $('#copy').click(function () {
+        var textToCopy = $('#textbox1').val();
+        $('#textbox2').val(textToCopy);
+      });
+    });
+  </script>
+</body>
+
+</html>

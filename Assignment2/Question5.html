@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question 5</title>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        #Btn{
+            font-size:15px;
+        }
+    </style>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+	<a href="https://www.google.com">Click here to go to Google</a>
+	<br><br>
+	<button id="Btn">Change Href and Open in Private Window</button>
+
+    <script>
+		$(document).ready(function() {
+			$('#Btn').click(function() {
+				$('a').attr('href', 'https://www.example.com').attr('target', '_blank').attr('rel', 'noopener noreferrer');
+			});
+		});
+	</script>
+</body>
+</html>

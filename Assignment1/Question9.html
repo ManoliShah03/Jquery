@@ -1,39 +1,51 @@
-<!DOCTYPE HTML
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 
-<head id="Head1">
-    <title></title>
-    <style type="text/css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
         body {
             font-family: Arial;
-            font-size: 10pt;
+            font-size: 20px;
         }
     </style>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
-    <input type="text" placeholder="mobile no." id="txtName" />
-    <span id="label" style="color: red"></span>
+    <label for="phone">Enter phone number:</label>
+    <input type="text" id="phone" maxlength="10">
+    <button id="validateBtn">Validate</button>
+    <div id="errorMsg"></div>
 
-    <script type="text/javascript">
-        $(function () {
-            $("#txtName").keypress(function (e) {
-                var keyCode = e.keyCode || e.which;
-
-                $("#label").html("");
-
-                var regex = /^[0-9]+$/;
-
-                var isValid = regex.test(String.fromCharCode(keyCode));
-                if (!isValid) {
-                    $("#label").html("Only Numbers allowed.");
+    <script>
+        $(document).ready(function () {
+            $('#phone').on('input', function () {
+                var phone = $('#phone').val();
+                var regex = /^[0-9]{0,10}$/;
+                if (!regex.test(phone)) {
+                    $('#phone').val(phone.slice(0, -1));
+                    $('#errorMsg').text('No Alphabets are allowed');
+                } else {
+                    $('#errorMsg').text('');
                 }
-
-                return isValid;
+            });
+            $('#validateBtn').click(function () {
+                var phone = $('#phone').val();
+                if (phone.length === 10) {
+                    alert('Phone number is valid!');
+                } else {
+                    alert('Phone number should be 10 digits long');
+                }
             });
         });
+
     </script>
 </body>
 

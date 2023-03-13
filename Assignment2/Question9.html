@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Append Text to Div Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #append {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">Sigma Infosolutions</div><br>
+    <button id="append">Append Text</button>
+
+    <script>
+        $(document).ready(function () {
+            $('#append').click(function () {
+                $('#div').append(' Appended Text');
+            });
+        });
+    </script>
+</body>
+
+</html>

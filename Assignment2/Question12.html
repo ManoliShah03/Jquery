@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Table Demo</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        th,td {
+            text-align: center;
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        tr:nth-child(even){background-color: lightgray;}
+        tr:nth-child(odd){background-color: darkgray;}
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <button id="createtable">Create Table</button>
+    <div id="tableContainer"></div>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#createtable').click(function () {
+                var table = $('<table>');
+                for (var i = 0; i < 5; i++) {
+                    var row = $('<tr>');
+                    for (var j = 0; j < 3; j++) {
+                        var cell = $('<td>');
+                        cell.text('Row ' + i + ', Column ' + j);
+                        row.append(cell);
+                    }
+                    table.append(row);
+                }
+                $('#tableContainer').append(table);
+            });
+        });
+    </script>
+</body>
+
+</html>

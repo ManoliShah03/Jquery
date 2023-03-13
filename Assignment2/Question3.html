@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question3</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+	<p>Manoli Shah</p>
+	<p>Test Test</p>
+	<p>Sigma Infosolutions</p>
+	<p>Hello World!</p>
+	<button id="removeBtn">Remove Third Paragraph</button>
+
+    <script>
+        $(document).ready(function() {
+          $("button").click(function(){
+          $('p:nth-child(3)').remove();
+          })
+        });
+      </script>
+
+</body>
+</html>

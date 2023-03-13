@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Question10</title>
+
+</head>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+<style>
+    #div1 {
+        background-color: lightgray;
+        padding: 10px;
+        margin: 10px;
+        height: 10vh;
+
+    }
+
+    #btn {
+        font-size: 15px;
+        margin-left: 15px;
+    }
+</style>
+
+<body>
+    <div id="div1">
+        <p>Text</p>
+    </div>
+    <button type="button" id="btn">Remove</button>
+
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                $("p").remove();
+            });
+        });
+    </script>
+</body>
+
+</html>
