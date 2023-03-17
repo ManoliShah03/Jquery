@@ -3,6 +3,9 @@ body {
     background-color: #e6eef5;
 }
 
+.main{
+    width:100%;
+}
 .arrow {
     border: solid black;
     border-width: 0 3px 3px 0;
@@ -25,7 +28,7 @@ body {
 }
 
 .container1 {
-    margin-left: 400px;
+    margin-left: 500px;
     font-size: 20px;
 
 }
