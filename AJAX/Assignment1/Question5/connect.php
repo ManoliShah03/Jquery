@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "admin";
 $password = "admin";
-$dbname = "movieform";
+$dbname = "moviedata";
 
 $conn = new mysqli($servername, $username, $password, );
 if ($conn->connect_error) {
@@ -18,8 +18,11 @@ if ($conn->query($createdb) === true) {
     echo "Error creating database: " . $conn->error;
 }
 $conn->select_db($dbname);
-//creating a table Movies
-$createtb = "CREATE TABLE IF NOT EXISTS Movies ( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,`title` VARCHAR(70) NOT NULL , `rating` INT(6) NOT NULL )";
+$createtb = "CREATE TABLE IF NOT EXISTS Movie (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    Title VARCHAR(30),
+    Rating INT
+)";
 
 if ($conn->query($createtb) === true) {
 } else {
