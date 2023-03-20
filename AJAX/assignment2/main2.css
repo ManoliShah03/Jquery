@@ -1,0 +1,17 @@
+th,td{
+    border: 1px solid black;
+    font-size: 20px;
+    width: 200px;
+    text-align: center;
+}
+
+fieldset{
+    width:90%;
+    margin: 20px 0px 0px 40px;
+    padding: 10px 10px 10px 70px;
+    background-color: #f0f7fa;
+}
+
+.tb{
+    margin-left: 100px;
+}
