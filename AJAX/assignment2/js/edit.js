@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         $.ajax({
 
-            url: "edit.php",
+            url: "php/edit.php",
             type: "POST",
             data: formData,
             dataType: "JSON",
