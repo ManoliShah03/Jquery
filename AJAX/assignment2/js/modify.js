@@ -27,6 +27,7 @@ $(document).ready(function () {
 
       }
       $(".deleteBtn").on("click", function () {
+        if (confirm("Are you sure to delete")) {
         var id = $(this).data("id");
         var row = $(this).closest("tr");
         $.ajax({
@@ -36,14 +37,16 @@ $(document).ready(function () {
           success: function () {
 
             row.remove();
+         }
+            });
           }
         });
-      });
       $(".updateBtn").on("click", function () {
+        if (confirm("Are you sure to Update")){
         var id = $(this).data("id");
         sessionStorage.setItem("id", id);
         window.location.href = 'edit.html';        
-        
+        }
     });
 
     }, error: function (xhr, status, error) {
