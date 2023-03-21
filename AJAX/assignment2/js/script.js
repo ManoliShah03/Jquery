@@ -15,10 +15,12 @@ $(document).ready(function () {
             dataType: 'json',
             encode: true,
             success: function (response) {
-                console.log(response);
-                alert(response[0].message);
-                if (response) {
+                if (response[0]["success"]) {
                     window.location.href = "login.html";
+                    alert(response[0].message);
+                }
+                else{
+                    alert(response[0].message);
                 }
             },
             error: function (xhr, status, error) {
