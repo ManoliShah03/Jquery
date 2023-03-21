@@ -1,12 +1,29 @@
 $(document).ready(function () {
     $('#form').submit(function (event) {
 
+        var name = /^[A-Za-z]+$/
+        var pwd = /^(?=.*[!@#$%^&*()\-_=+{}\[\]\\|;:\'",.<>\/?])(?=.{8,})/;
+
         var formData = {
             fname: $('#fname').val(),
             lname: $('#lname').val(),
             email: $('#email').val(),
             password: $('#password').val()
         };
+
+        if (!name.test(formData.fname)) {
+            alert('Please enter valid First Name')
+            return false
+          }
+          if (!name.test(formData.lname)) {
+            alert('Please enter valid Last Name')
+            return false
+          }
+
+          if (!pwd.test(formData.password)) {
+            alert('Password should be of minimum 8 characters and must contain a special character')
+            return false
+          }
 
         $.ajax({
             type: 'POST',

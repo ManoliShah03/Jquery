@@ -8,6 +8,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // if (!(preg_match('/^[a-zA-Z ]{1,30}$/', $firstName))) {
+    //     $result_arr[] = array("message" => "Invalid First Name");
+    //     echo json_encode($result_arr);
+    //     exit;
+    // }
+    // if (!(preg_match('/^[a-zA-Z ]{1,30}$/', $lastName))) {
+    //     $result_arr[] = array("message" => "Invalid Last Name");
+    //     echo json_encode($result_arr);
+    //     exit;
+    // }
 
     $query = "SELECT `email` FROM post";
     $result = $conn->query($query);
