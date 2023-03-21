@@ -1,0 +1,33 @@
+.container {
+    width: 100%;
+}
+
+body {
+    text-align: center;
+}
+
+#button {
+    font-size: 20px;
+    background-color: #edf7f6;
+    margin-top: 15px;
+}
+
+fieldset {
+    background-color: #edf7f6;
+    margin: 20px 0px 0px 20px;
+    padding: 0px 4px 10px 165px;
+}
+
+#mytable {
+    text-align: center;
+}
+
+th,
+td {
+    border: 1px solid black;
+}
+
+#mytable {
+    margin-left: 250px;
+    width: 70%;
+}

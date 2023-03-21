@@ -1,5 +1,5 @@
-$(document).ready(function() {
-    $('#form').submit(function(event) {
+$(document).ready(function () {
+    $('#form').submit(function (event) {
 
         var formData = {
             fname: $('#fname').val(),
@@ -14,14 +14,14 @@ $(document).ready(function() {
             data: formData,
             dataType: 'json',
             encode: true,
-            success: function(response) {
+            success: function (response) {
                 console.log(response);
                 alert(response[0].message);
-                if(response){
+                if (response) {
                     window.location.href = "login.html";
                 }
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.log("Error:", error);
             }
         });
@@ -30,8 +30,8 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
-    $('#tabledata').submit(function(event) {
+$(document).ready(function () {
+    $('#tabledata').submit(function (event) {
 
         var formData = {
             userId: $('#userid').val(),
@@ -45,30 +45,30 @@ $(document).ready(function() {
             data: formData,
             dataType: 'json',
             encode: true,
-            success: function(response) {
+            success: function (response) {
                 window.location.href = "view.html";
                 $('#mytable tbody').empty()
                 var len = response.length
                 for (var i = 0; i < len; i++) {
-                var id = response[i].id
-                var userid = response[i].userId
-                var title = response[i].Title
-                var description = response[i].description
-                var tr_str =
-                    '<tr>' +
-                    '<td>' + id + '</td>' +
-                    '<td>' + userid + '</td>' +
-                    '<td>' + title +  '</td>' +
-                    '<td>' +  description +  '</td>' +
-                    "<td><button  class='deleteBtn' data-id='" + id +"'>Delete</button></td>" +
-                    '</tr>'
+                    var id = response[i].id
+                    var userid = response[i].userId
+                    var title = response[i].Title
+                    var description = response[i].description
+                    var tr_str =
+                        '<tr>' +
+                        '<td>' + id + '</td>' +
+                        '<td>' + userid + '</td>' +
+                        '<td>' + title + '</td>' +
+                        '<td>' + description + '</td>' +
+                        "<td><button  class='deleteBtn' data-id='" + id + "'>Delete</button></td>" +
+                        '</tr>'
                     $('#mytable tbody').append(tr_str)
                     $('#title').val('')
                     $('#rating').val('')
-                    
+
                 }
-                    },
-            error: function(xhr, status, error) {
+            },
+            error: function (xhr, status, error) {
                 console.log("Error:", error);
             }
         });

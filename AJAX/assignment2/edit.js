@@ -4,14 +4,14 @@ $(document).ready(function () {
         var id = sessionStorage.getItem("id");
 
         var formData = {
-            id:id,
+            id: id,
             user_id: $('#user_id').val(),
             post_name: $('#post_name').val(),
             post_description: $('#post_description').val(),
         }
 
         $.ajax({
-           
+
             url: "edit.php",
             type: "POST",
             data: formData,
@@ -24,9 +24,6 @@ $(document).ready(function () {
 
                 }
             }
-            // error: function (xhr, status, error) {
-            //     alert("failed" + xhr + status + error);
-            // }
 
         });
 

@@ -5,15 +5,15 @@ $username = "admin";
 $password = "admin";
 $dbname = "userlogin";
 
-$conn = new mysqli($servername, $username, $password,);
+$conn = new mysqli($servername, $username, $password, );
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 $createdb = "CREATE DATABASE IF NOT EXISTS $dbname";
 
-if ($conn->query($createdb) === TRUE) {
+if ($conn->query($createdb) === true) {
 } else {
-  echo "Error creating database: " . $conn->error;
+    echo "Error creating database: " . $conn->error;
 }
 $conn->select_db($dbname);
 $createtb = "CREATE TABLE IF NOT EXISTS post (
@@ -24,8 +24,8 @@ $createtb = "CREATE TABLE IF NOT EXISTS post (
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 )";
-  
-if ($conn->query($createtb) === TRUE) {
+
+if ($conn->query($createtb) === true) {
 } else {
-  echo "Error creating table: " . $conn->error;
+    echo "Error creating table: " . $conn->error;
 }

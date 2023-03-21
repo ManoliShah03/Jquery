@@ -1,10 +1,10 @@
 <?php include 'connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $userid=$_POST['userid'];
+    $userid = $_POST['userid'];
     $Title = $_POST['Title'];
     $Description = $_POST['Description'];
-    
+
     $sql = "CREATE TABLE IF NOT EXISTS Post (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         Title VARCHAR(100) NOT NULL,
@@ -12,25 +12,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         userid VARCHAR(100) NOT NULL
 
     )";
-    
-    if ($conn->query($sql) === TRUE) {
+
+    if ($conn->query($sql) === true) {
         // echo "Table posts created successfully";
     } else {
         echo "Error creating table: " . $conn->error;
     }
-    
-    
 
-    $sql = "INSERT INTO Post (userid,Title, Description) 
+    $sql = "INSERT INTO Post (userid,Title, Description)
     VALUES ('$userid','$Title', '$Description')";
 
-
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === true) {
         // echo "New record created successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-
 
     $sql_select = "SELECT * FROM Post";
     $result = $conn->query($sql_select);
@@ -45,9 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $return_arr[] = array(
                 "id" => $id,
-              "userid"=>$userid,
+                "userid" => $userid,
                 "Title" => $Title,
-                "Description" => $Description
+                "Description" => $Description,
             );
         }
         echo json_encode($return_arr);

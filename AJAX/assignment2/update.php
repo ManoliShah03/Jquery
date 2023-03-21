@@ -10,6 +10,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo "Error Updating record: " . mysqli_error($conn);
     }
-
     
 }

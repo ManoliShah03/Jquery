@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($query);
 
     if ($result === false) {
-        // display any database errors
         echo 'Error: ' . mysqli_error($conn);
         exit;
     }
@@ -23,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (checkusername($rows, $username)) {
         if (checkpassword($rows, $password)) {
             $return_arr[] = array(
-                "success" => true
+                "success" => true,
             );
             echo json_encode($return_arr);
             die();
@@ -44,13 +43,13 @@ function checkpassword($rows, $password)
             return true;
         }
     }
-    // return false;
-    echo("Wrong password");
+    return false;
+    // echo ("Wrong password");
 }
 
 function checkusername($rows, $username)
 {
-    
+
     foreach ($rows as $row) {
         if ($row["email"] == $username) {
             return true;

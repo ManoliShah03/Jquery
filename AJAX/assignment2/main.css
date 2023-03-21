@@ -1,32 +1,28 @@
+.container {
+	width: 100%;
+	display: inline-block;
+}
 
+fieldset {
+	width: 23%;
+	margin-left: 500px;
+	margin-top: 130px;
+	background-color: #edf7f6;
+}
 
+h1 {
+	margin-left: 92px;
+}
 
+#form {
+	width: 100%;
+}
 
-	 .container{
-		width:100%;
-		display: inline-block;
-	}
-	
-	fieldset{
-		width: 23%;
-		margin-left:500px;
-		margin-top: 130px;
-		background-color: #edf7f6;
-	}
-	
-	h1{
-		margin-left: 92px;
-	}
-	
-	#form{
-		width:100%;
-	}
-	
-	#sub-btn{
-		margin-left: 117px;
-		font-size: 18px;
-	}
-	
-	p{
-		margin-left: 65px; 
-	}
+#sub-btn {
+	margin-left: 117px;
+	font-size: 18px;
+}
+
+p {
+	margin-left: 65px;
+}
