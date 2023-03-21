@@ -16,8 +16,9 @@ $(document).ready(function () {
             encode: true,
             success: function (response) {
                 if (response[0]["success"]) {
-                    window.location.href = "login.html";
                     alert(response[0].message);
+                    window.location.href = "login.html";
+                   
                 }
                 else{
                     alert(response[0].message);
