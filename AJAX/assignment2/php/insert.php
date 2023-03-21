@@ -18,36 +18,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo "Error creating table: " . $conn->error;
     }
+ 
+$stmt = $conn->prepare("INSERT INTO Post (userid,Title, Description) 
+                             VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $userid, $Title, $Description);
+    if ($stmt->execute()) {
+        $stmt->close();
 
-    $sql = "INSERT INTO Post (userid,Title, Description)
-    VALUES ('$userid','$Title', '$Description')";
+        $stmt_select = $conn->prepare("SELECT * FROM Post");
+        if ($stmt_select->execute()) {
+            $result = $stmt_select->get_result();
 
-    if ($conn->query($sql) === true) {
-        // echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
 
-    $sql_select = "SELECT * FROM Post";
-    $result = $conn->query($sql_select);
+                    $id = $row['id'];
+                    $userId = $row['userid'];
+                    $title = $row["Title"];
+                    $description = $row["Description"];
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
+                    $return_arr[] = array(
+                        "id" => $id,
+                        "userid" => $userId,
+                        "Title" => $title,
+                        "Description" => $description
+                    );
+                }
+                echo json_encode($return_arr);
+            } else {
+                echo "0 results";
+            }
 
-            $id = $row['id'];
-            $userid = $row["userid"];
-            $Title = $row["Title"];
-            $Description = $row["Description"];
-
-            $return_arr[] = array(
-                "id" => $id,
-                "userid" => $userid,
-                "Title" => $Title,
-                "Description" => $Description,
-            );
+            $stmt_select->close();
+        } else {
+            echo "Error selecting posts: " . $conn->error;
         }
-        echo json_encode($return_arr);
+
     } else {
-        echo "0 results";
+        echo "Error inserting post: " . $conn->error;
+        $stmt->close();
     }
 }

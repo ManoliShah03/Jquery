@@ -14,16 +14,16 @@ $(document).ready(function () {
         if (!name.test(formData.fname)) {
             alert('Please enter valid First Name')
             return false
-          }
-          if (!name.test(formData.lname)) {
+        }
+        if (!name.test(formData.lname)) {
             alert('Please enter valid Last Name')
             return false
-          }
+        }
 
-          if (!pwd.test(formData.password)) {
+        if (!pwd.test(formData.password)) {
             alert('Password should be of minimum 8 characters and must contain a special character')
             return false
-          }
+        }
 
         $.ajax({
             type: 'POST',
@@ -35,9 +35,9 @@ $(document).ready(function () {
                 if (response[0]["success"]) {
                     alert(response[0].message);
                     window.location.href = "login.html";
-                   
+
                 }
-                else{
+                else {
                     alert(response[0].message);
                 }
             },
@@ -53,11 +53,14 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#tabledata').submit(function (event) {
 
+
+
         var formData = {
             userId: $('#userid').val(),
             title: $('#Post_title').val(),
             description: $('#Post_description').val(),
         };
+
 
         $.ajax({
             type: 'POST',
