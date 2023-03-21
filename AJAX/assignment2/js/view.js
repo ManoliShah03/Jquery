@@ -2,6 +2,7 @@ $(document).ready(function () {
   $('tbody').empty();
   $("form").submit(function (event) {
     $('tbody').empty();
+    
 
     var formData = {
       userid: $("#userid").val(),
