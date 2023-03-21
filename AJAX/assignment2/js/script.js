@@ -43,7 +43,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'insert.php',
+            url: 'php/insert.php',
             data: formData,
             dataType: 'json',
             encode: true,
