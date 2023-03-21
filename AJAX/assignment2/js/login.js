@@ -13,9 +13,13 @@ $(document).ready(function () {
       dataType: 'json',
       encode: true,
       success: function (response) {
-        if (response) {
+        if (response[0]["success"]){
           window.location.href = "view.html";
         }
+        else{
+          alert(response[0]["message"]);
+        }
+      
       },
       error: function (xhr, status, error) {
         console.log("Error:", error);
